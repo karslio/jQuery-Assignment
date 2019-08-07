@@ -1,22 +1,27 @@
 $("button").click(function(e) {
   e.preventDefault();
   let newAdd = $("#add").val();
-  if(newAdd != ""){
-  let newSpan1 = "<span>" + newAdd + "</span>";
-  let newSpan2 = '<span class="delete">delete</span>';
-  let newList = $("<li>" + newSpan1 + newSpan2 + "</li>");
-  $("ul").append(newList);}
-  $("#add").val("");
+  if (newAdd != "") {
+    let newSpan1 = "<span class= name>" + newAdd + "</span>";
+    let newSpan2 = '<span class="delete">delete</span>';
+    let newList = $("<li>" + newSpan1 + newSpan2 + "</li>");
+    $("ul").append(newList);
+    $("#add").val("");
+    $("#topic-list li:even").css("background-color", "#eeeeee");
+  }
 });
 
-$(".delete").on("click", function() {
+$(document).on("click", ".delete", function() {
+  event.preventDefault();
   $(this)
-    .parent("li")
+    .closest("li")
     .remove();
 });
 
 $("#search-topics").on("keyup", function() {
-  let value = $("input").val().toLowerCase();
+  let value = $("input")
+    .val()
+    .toLowerCase();
   $("li").filter(function() {
     $(this).toggle(
       $(this)
@@ -27,13 +32,7 @@ $("#search-topics").on("keyup", function() {
   });
 });
 
+// $(document).on('mousemove', function (e) {
+//   $('#footer').html(' y: '+e.clientY + " x: " +e.clientX);
 
-
- 
-$('li:even').css('background-color','#eeeeee');
-
-
-$(document).on('mousemove', function (e) {
-  $('#footer').html(' y: '+e.clientY + " x: " +e.clientX);
-  
-});
+// });
