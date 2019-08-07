@@ -1,10 +1,11 @@
 $("button").click(function(e) {
   e.preventDefault();
   let newAdd = $("#add").val();
+  if(newAdd != ""){
   let newSpan1 = "<span>" + newAdd + "</span>";
   let newSpan2 = '<span class="delete">delete</span>';
   let newList = $("<li>" + newSpan1 + newSpan2 + "</li>");
-  $("ul").append(newList);
+  $("ul").append(newList);}
   $("#add").val("");
 });
 
@@ -30,3 +31,9 @@ $("#search-topics").on("keyup", function() {
 
  
 $('li:even').css('background-color','#eeeeee');
+
+
+$(document).on('mousemove', function (e) {
+  $('#footer').html(' y: '+e.clientY + " x: " +e.clientX);
+  
+});
