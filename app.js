@@ -25,3 +25,8 @@ $("#search-topics").on("keyup", function() {
     );
   });
 });
+
+
+
+ 
+$('li:even').css('background-color','#eeeeee');
